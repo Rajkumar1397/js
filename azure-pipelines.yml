@@ -14,8 +14,3 @@ steps:
     repository: $(imageName)
     command: build
     Dockerfile: app/Dockerfile
-- task: Docker@2
-  inputs:
-    containerRegistry: 'abcd'
-    repository: 'sampleregistry123.azurecr.io'
-    command: 'push'
