@@ -14,3 +14,11 @@ steps:
     repository: $(imageName)
     command: build
     Dockerfile: app/Dockerfile
+- task: DockerCompose@0
+  inputs:
+    containerregistrytype: 'Azure Container Registry'
+    azureSubscription: 'Free Trial(a2fa597b-f361-4e1e-9c15-78d9462a3d39)'
+    azureContainerRegistry: '{"loginServer":"sampleregistry123.azurecr.io", "id" : "/subscriptions/a2fa597b-f361-4e1e-9c15-78d9462a3d39/resourceGroups/ABCD/providers/Microsoft.ContainerRegistry/registries/sampleregistry123"}'
+    dockerComposeFile: '**/docker-compose.yml'
+    action: 'Run a Docker Compose command'
+    dockerComposeCommand: 'run'
